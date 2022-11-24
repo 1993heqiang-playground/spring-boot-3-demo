@@ -11,7 +11,7 @@ import redis.clients.jedis.JedisPool;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Testcontainers
-public class RedisBackedCacheIntTest {
+class RedisBackedCacheIntTest {
 
 	private RedisBackedCache underTest;
 
@@ -31,7 +31,7 @@ public class RedisBackedCacheIntTest {
 	}
 
 	@Test
-	public void testSimplePutAndGet() {
+	void testSimplePutAndGet() {
 		underTest.put("test", "example");
 
 		String retrieved = underTest.get("test");
