@@ -6,23 +6,19 @@
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": "none",
-			"jdkDistro": "22.3.r17-nik",
 			"installMaven": "true",
 			"installGradle": "true"
 		},
 		"ghcr.io/devcontainers/features/sshd:1": {},
 		"ghcr.io/devcontainers/features/docker-in-docker:1": {}
-	}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
+	"postCreateCommand": "sdk install java 22.3.r17-nik && sdk use java 22.3.r17-nik && java --version",
 
-	// Configure tool-specific properties.
 	// "customizations": {},
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "root"
 }
