@@ -97,13 +97,6 @@
 						<!-- graalvm agent config -->
 						-agentlib:native-image-agent=config-output-dir=target/native-image
 					</jvmArguments>
-					<image>
-						<env>
-							<HTTP_PROXY>http://192.168.10.10:10809</HTTP_PROXY>
-							<HTTPS_PROXY>http://192.168.10.10:10809</HTTPS_PROXY>
-<!--							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>-->
-						</env>
-					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
