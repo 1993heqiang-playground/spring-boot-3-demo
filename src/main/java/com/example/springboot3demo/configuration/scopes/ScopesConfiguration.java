@@ -1,7 +1,8 @@
 package com.example.springboot3demo.configuration.scopes;
 
 import java.util.UUID;
-import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Configuration;
@@ -35,6 +36,8 @@ public class ScopesConfiguration {
 @Controller
 @ResponseBody
 class ContextController {
+	public static final Log LOGGER = LogFactory.getLog(ContextController.class);
+
 	final RequestContext requestContext;
 
 	@Lazy
@@ -44,6 +47,7 @@ class ContextController {
 
 	@GetMapping("/scopes/context")
 	String requestScope() {
+		LOGGER.info("requestScope() has been called");
 		return requestContext.getUuid();
 	}
 }

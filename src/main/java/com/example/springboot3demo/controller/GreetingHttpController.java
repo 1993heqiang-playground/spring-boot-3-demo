@@ -24,7 +24,8 @@ class GreetingHttpController {
 		if (!good) {
 			throw new IllegalArgumentException("name is invalid.");
 		}
-		return Observation.createNotStarted("greeting.name", this.registry)
-				.observe(() -> new Greeting("Greeting " + name + "!"));
+		Observation observation = Observation.createNotStarted("greeting.name", this.registry);
+		observation.lowCardinalityKeyValue("test", "greeting");
+		return observation.observe(() -> new Greeting("Greeting " + name + "!"));
 	}
 }
